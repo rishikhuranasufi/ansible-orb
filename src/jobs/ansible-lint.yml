@@ -18,7 +18,7 @@ parameters:
 steps:
   - run:
       name: Install packages needed
-      command: apk --no-cache add ansible-lint
+      command: echo "already installed"
   - checkout
   - run:
       name: Check ansible lint version
