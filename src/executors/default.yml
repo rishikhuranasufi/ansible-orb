@@ -1,0 +1,4 @@
+description: >
+  This is a sample executor using Docker and Node.
+docker:
+  - image: 'cytopia/ansible-lint:349034eaf4c3'

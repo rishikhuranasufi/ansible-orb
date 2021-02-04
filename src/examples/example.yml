@@ -1,0 +1,14 @@
+description: >
+  Sample example of using Ansible orbs.
+# Provide a use-case based example for using this orb.
+# Everything in the `usage` section will be displayed in the orb registry.
+# Comments are not retained.
+usage:
+  version: 2.1
+  orbs:
+    ansible: rishikhuranasufi/ansible-techno-trainer@1.0.0
+  workflows:
+    use-my-orb:
+      jobs:
+        - ansible/ansible-lint
+        - ansible/ansible-playbook-syntax

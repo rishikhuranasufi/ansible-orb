@@ -1,0 +1,27 @@
+description: >
+  Run ansible lint
+# What will this command do?
+# Descriptions should be short, simple, and clear.
+executor: default
+parameters:
+  dir:
+    default: .
+    description: Specify a custom ansible-lint config
+    type: string
+  depth:
+    default: 10
+    description: Specify maxdepth when looking for file(s)
+    type: integer
+steps:
+  - run:
+      name: Install packages needed
+      command: apk --no-cache add ansible-lint
+  - checkout
+  - run:
+      name: Check ansible lint version
+      command: ansible-lint --version
+  - run:
+      name: Check ansible-playbook syntax
+      command: >-
+        find <<parameters.dir>> -type f -maxdepth <<parameters.depth>> -name
+        '*.yml' | xargs ansible-playbook --syntax-check
